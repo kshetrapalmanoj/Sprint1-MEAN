@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   {
  this.messageservice.clear()
 
- this.messageservice.addMessage('Just cleared the message')
+ this.messageservice.addMessage('Just cleared the message')//adding message with addMessage method from message.service.ts
  console.log('Cleared all the messages')
   }
   done()
