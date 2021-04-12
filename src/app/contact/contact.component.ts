@@ -1,7 +1,6 @@
 import { MessageService } from './../message.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +8,7 @@ import { CustomValidators } from 'ng2-validation';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  
+
 
   angForm: FormGroup;
   constructor(private fb: FormBuilder,private messageservice:MessageService) {//dependency injection
@@ -25,15 +24,6 @@ export class ContactComponent implements OnInit {
       budget:['',Validators.required]
    });
  }
-  // constructor(private fb:FormBuilder) { }
-  // registrationForm=this.fb.group({
-  //   name:[''],
-  //   email:[''],
-  //   phone:null,
-  //   location:['']
-  // }
-  // )
-
 
   getMessage()
   {

@@ -98,7 +98,7 @@
             <form method="post" action="home.html" [formGroup]="angForm">
               <div class="form-group">
                 <label>Full Name:</label>
-                <input class="form-control" formControlName="name" type="text" placeholder="Enter your full name" pattern="[A-Za-z]{3,}" maxlength="30">
+                <input class="form-control" formControlName="name" type="text" placeholder="Enter your full name" pattern="[A-Za-z]{3,} [A-Za-z]{3,}" maxlength="30">
               </div>
               <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
                 <div *ngIf="angForm.controls['name'].errors.required">
@@ -123,12 +123,12 @@
                   <!-- <input type="reset" (click)="reset()" value="Clear" class="btn btn-warning"> -->
                   <input type="reset"  (click)="reset()" value="Clear">
               </div>
-        
+
             </form>
             <br />
             <p>Form value: {{ angForm.value | json }}</p>
             <p>Form status: {{ angForm.status | json }}</p>
-            
+
           </div>
         </nav>
       </aside>
@@ -201,7 +201,7 @@
     </div>
 
     <div style="clear: both"></div>
-    
+
 
 
 

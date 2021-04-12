@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
        console.log(position.coords);
        }
 
-  
+
   angForm: FormGroup;
   constructor(private fb: FormBuilder,private messageservice:MessageService) {
    this.createForm();
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
       fname: ['', Validators.required ],
       lname: ['', Validators.required ],
       email:['',Validators.required],
+      upload:['', Validators.required]
    });
  }
 
@@ -53,9 +54,9 @@ this.messageservice.addMessage('Form submitted')
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(position => {
       this.location = position.coords;
-      console.log(position.coords); 
+      console.log(position.coords);
     });
-    
+
  }
  if (!navigator.geolocation) {
   console.log('location is not supported');

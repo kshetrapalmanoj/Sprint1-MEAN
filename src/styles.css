@@ -4,9 +4,15 @@
 	margin: 0 auto 0 auto;
 	text-align: left;
 }
-.alert 
+.alert
 {
     color: red;   /*manually added to show all error messages in red*/
+}
+/* input.ng-valid {
+  background-color: lightgreen;
+} */
+select.ng-valid {
+  background-color: lightgreen;
 }
 
 body {
