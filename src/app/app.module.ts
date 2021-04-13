@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { DeveloperComponent } from './developer/developer.component';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +14,15 @@ import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { InfoComponent } from './info/info.component';
 import { MessageComponent } from './message/message.component';
+import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import { DeveloperdetailsComponent } from './developerdetails/developerdetails.component';
+
 
 @NgModule({
   declarations: [
@@ -22,14 +33,23 @@ import { MessageComponent } from './message/message.component';
     RegisterComponent,
     ContactComponent,
     InfoComponent,
-    MessageComponent
+    MessageComponent,
+    LoginComponent,
+    DeveloperdetailsComponent,
+    DeveloperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
-
-    
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatCheckboxModule,
+    FormsModule,
+    HttpClientModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

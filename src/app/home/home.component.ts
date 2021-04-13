@@ -10,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb: FormBuilder,private messageservice:MessageService){//messageservice dependency injection 
+  constructor(private fb: FormBuilder,private messageservice:MessageService){//messageservice dependency injection
    this.createForm();
  }
- 
+
   createForm() {
    this.angForm = this.fb.group({//angForm is the formgroup name given in html form tag
       name: ['', Validators.required ],//formControlNames name and email
@@ -27,14 +27,15 @@ export class HomeComponent implements OnInit {
   }
   reset()
   {
- this.messageservice.clear()
+    this.messageservice.clear()
 
- this.messageservice.addMessage('Just cleared the message')//adding message with addMessage method from message.service.ts
- console.log('Cleared all the messages')
+    this.messageservice.addMessage('Just cleared the message')//adding message with addMessage method from message.service.ts
+    console.log('Cleared all the messages')
   }
   done()
   {
-this.messageservice.addMessage('Submitted successfully')
+    console.log(this.angForm.value);
+    this.messageservice.addMessage('Submitted successfully')
   }
   ngOnInit(): void {
     // this.messageservice.addMessage('Welcome to Home Page');

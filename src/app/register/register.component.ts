@@ -47,7 +47,8 @@ console.log('Cleared all the messages')
 
  done()
  {
-this.messageservice.addMessage('Form submitted')
+  console.log(this.angForm.value);
+  this.messageservice.addMessage('Form submitted')
  }
 
  ngOnInit(): void {

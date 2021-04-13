@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+<h3 align="center">Welcome to Developer Management</h3>
+
+<div class="row">
+
+  <div class="col s12">
+    <div class="card black-text">
+      <div class="card-content violet-text">
+        <p>Add New Developer</p>
+        <div class="row">
+          <div class="col s5">
+            <form #developerForm="ngForm" (ngSubmit)="onSubmit(developerForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="developerService.selectedDeveloper._id">
+              <div class="row">
+                <div class="input-field col s12"><br>
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="developerService.selectedDeveloper.name" placeholder="Enter full name" required pattern="[A-Za-z]{3,} [A-Za-z]{3,}" maxlength="30">
+                  <label>Name :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><br>
+                  <input type="email" name="email" #name="ngModel" [(ngModel)]="developerService.selectedDeveloper.email" placeholder="Enter you email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <label>Email :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><br>
+                  <input type="text" name="office" #name="ngModel" [(ngModel)]="developerService.selectedDeveloper.office" placeholder="Enter office location" required pattern="[A-Za-z]{1,}">
+                  <label>Office :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><br>
+                  <input type="number" name="salary" #name="ngModel" [(ngModel)]="developerService.selectedDeveloper.salary" placeholder="Enter salary" required min="0" >
+                  <label>Salary :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom" type="button" (click)="resetForm(developerForm)">Reset</button>
+                  <button class="btn btn-success" type="submit" [disabled]="!developerForm.valid">Submit</button>
+                  <button class="btn btn-custom" type="button" routerLink="/home.html">Go Back</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s7">
+              <table class="responsive-table highlight">
+                <caption>Developer List:</caption>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Office</th>
+                      <th>Salary</th>
+                      <th>Edit and Delete</th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let dev of developerService.developers">
+                    <td>{{dev.name}}</td>
+                    <td>{{dev.email}}</td>
+                    <td>{{dev.office}}</td>
+                    <td>{{dev.salary}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(dev)">
+                          <i class="material-icons">edit</i>
+                        </a>
+                        <a class="action-btn" (click)="onDelete(dev._id,developerForm)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </td>
+                  </tr>
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

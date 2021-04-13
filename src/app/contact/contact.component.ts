@@ -31,14 +31,15 @@ export class ContactComponent implements OnInit {
   }
   reset()
   {
- this.messageservice.clear()
+    this.messageservice.clear()
 
- this.messageservice.addMessage('Just cleared the message')
- console.log('Cleared all the messages')
+    this.messageservice.addMessage('Just cleared the message')
+    console.log('Cleared all the messages')
   }
   done()
   {
-this.messageservice.addMessage('Data Submitted')
+    console.log(this.angForm.value);
+    this.messageservice.addMessage('Data Submitted')
   }
   ngOnInit(): void {
     this.messageservice.addMessage('Welcome to Contact Page');
